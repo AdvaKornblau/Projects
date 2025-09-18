@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
-
 
 namespace SmartParkingSystem
 {
@@ -21,7 +21,7 @@ namespace SmartParkingSystem
             this.locker = new object();
 
             for (int i = 0; i < capacity; ++i) {
-                this.spots[i] = new ParkingSpot(i + 1); // ID of a parkingSpot will begin from 1.
+                this.spots[i] = new ParkingSpot(i + 1);
             }
         }
 
@@ -43,6 +43,7 @@ namespace SmartParkingSystem
             lock (this.locker)
             {
                 if (vehicle.GetIsParked()) {
+                    // Message appears in the function to match the kind of error
                     Console.WriteLine("Vehicle " + vehicle.GetLicensePlate() + " is already parked elsewhere.");
                     return false;
                 }
@@ -54,8 +55,7 @@ namespace SmartParkingSystem
                         return true;
                     }
                 }
-
-                // case there are no avilable parking spots
+                // Message appears in the function to match the kind of error
                 Console.WriteLine("No available spots for " + vehicle.ToString());
                 return false;
             }
@@ -69,11 +69,9 @@ namespace SmartParkingSystem
                     if (spot.GetCurrentVehicle() != null &&
                         spot.GetCurrentVehicle().GetLicensePlate() == licensePlate) {
                         double fee = spot.Unpark(this.hourlyRate);
-                        Console.WriteLine("Vehicle " + licensePlate + " unparked. Fee: " + fee + "NIS");
                         return fee;
                     }
                 }
-                Console.WriteLine("Vehicle " + licensePlate + " not found.");
                 return 0;
             }
         }
@@ -96,6 +94,5 @@ namespace SmartParkingSystem
         {
             Console.WriteLine(this.ToString());
         }
-
     }
 }

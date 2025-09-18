@@ -7,6 +7,8 @@ namespace SmartParkingSystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("====== SIMULATION OF SMART PARKING SYSTEM ======\n");
+
             // creating tow parking lots
             ParkingLot lotA = new ParkingLot("Lot A", 10.0, 2); // hourly price 10, capacity 2
             ParkingLot lotB = new ParkingLot("Lot B", 15.0, 3);
@@ -19,7 +21,7 @@ namespace SmartParkingSystem
 
             // parking vehicles
             Console.WriteLine("=== Park in Lot A ===");
-            lotA.ParkVehicle(car1);
+            lotA.ParkVehicle(car1); 
             lotA.ParkVehicle(car2);
 
             Console.WriteLine("\n=== Park in Lot B ===");
@@ -38,7 +40,11 @@ namespace SmartParkingSystem
             // release vehicle from lot A
             Console.WriteLine("\n--- Exiting Lot A ---");
             double fee1 = lotA.UnparkVehicle("111-11-111");
-            Console.WriteLine("fee for car1: " + fee1 + "NIS");
+            if (fee1 == 0) {
+                Console.WriteLine("Vehicle 111-11-111 not found.");
+            } else {
+                Console.WriteLine("fee for car1: " + fee1 + "NIS");
+            }
 
             // wait again
             Console.WriteLine("\n(wait for the car to exit...)");
@@ -54,7 +60,7 @@ namespace SmartParkingSystem
             lotA.PrintStatus();
             lotB.PrintStatus();
 
-            Console.WriteLine("\nEnd test.");
+            Console.WriteLine("\n======== END SIMULATION =========");
         }
     }
 }

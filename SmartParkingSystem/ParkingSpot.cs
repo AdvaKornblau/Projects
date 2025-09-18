@@ -14,8 +14,8 @@ namespace SmartParkingSystem
         {
             this.id = id;
             this.isOccupied = false;
-            this.currentVehicle = null; // In case of future need
-            this.session = null;        // In case of future need
+            this.currentVehicle = null;
+            this.session = null;
         }
 
         public int GetId() 
