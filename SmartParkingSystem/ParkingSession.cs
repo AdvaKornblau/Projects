@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SmartParkingSystem
 {
@@ -21,10 +18,22 @@ namespace SmartParkingSystem
             this.endTime = null;
         }
 
-        public Vehicle GetVehicle() { return this.vehicle; }
-        public ParkingSpot GetSpot() { return this.spot; }
-        public DateTime GetStartTime() { return this.startTime; }
-        public DateTime? GetEndTime() { return this.endTime; }
+        public Vehicle GetVehicle()
+        {
+            return this.vehicle;
+        }
+        public ParkingSpot GetSpot() 
+        {
+            return this.spot;
+        }
+        public DateTime GetStartTime()
+        {
+            return this.startTime;
+        }
+        public DateTime? GetEndTime()
+        {
+            return this.endTime;
+        }
 
         public void EndSession()
         {

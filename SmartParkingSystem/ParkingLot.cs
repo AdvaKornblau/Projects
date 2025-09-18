@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 
@@ -24,15 +20,23 @@ namespace SmartParkingSystem
             this.spots = new ParkingSpot[capacity];
             this.locker = new object();
 
-            for (int i = 0; i < capacity; i++)
-            {
-                this.spots[i] = new ParkingSpot(i + 1);
+            for (int i = 0; i < capacity; ++i) {
+                this.spots[i] = new ParkingSpot(i + 1); // ID of a parkingSpot will begin from 1.
             }
         }
 
-        public string GetName() { return this.name; }
-        public double GetHourlyRate() { return this.hourlyRate; }
-        public int GetCapacity() { return this.capacity; }
+        public string GetName() 
+        {
+            return this.name;
+        }
+        public double GetHourlyRate() 
+        {
+            return this.hourlyRate;
+        }
+        public int GetCapacity() 
+        {
+            return this.capacity;
+        }
 
         public bool ParkVehicle(Vehicle vehicle)
         {
@@ -44,8 +48,7 @@ namespace SmartParkingSystem
                 }
 
                 foreach (ParkingSpot spot in this.spots) {
-                    if (!spot.GetIsOccupied())
-                    {
+                    if (!spot.GetIsOccupied()) {
                         spot.Park(vehicle);
                         Console.WriteLine(vehicle.ToString() + " parked at spot " + spot.GetId());
                         return true;
@@ -66,7 +69,7 @@ namespace SmartParkingSystem
                     if (spot.GetCurrentVehicle() != null &&
                         spot.GetCurrentVehicle().GetLicensePlate() == licensePlate) {
                         double fee = spot.Unpark(this.hourlyRate);
-                        Console.WriteLine("Vehicle " + licensePlate + " unparked. Fee: " + fee + "₪");
+                        Console.WriteLine("Vehicle " + licensePlate + " unparked. Fee: " + fee + "NIS");
                         return fee;
                     }
                 }
@@ -74,11 +77,11 @@ namespace SmartParkingSystem
                 return 0;
             }
         }
+
         public override string ToString()
         {
             int free = 0, occupied = 0;
-            foreach (ParkingSpot spot in this.spots)
-            {
+            foreach (ParkingSpot spot in this.spots) {
                 if (spot.GetIsOccupied())
                     ++occupied;
                 else
@@ -88,6 +91,7 @@ namespace SmartParkingSystem
             return "Parking Lot '" + this.name + "' (Capacity: " + this.capacity +
                    ") - Free: " + free + ", Occupied: " + occupied;
         }
+
         public void PrintStatus()
         {
             Console.WriteLine(this.ToString());
