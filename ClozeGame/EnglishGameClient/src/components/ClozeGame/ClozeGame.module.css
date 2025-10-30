@@ -1,0 +1,115 @@
+.clozeGame {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.sentence {
+  font-size: 1.8rem;
+  line-height: 2.5;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.submitButton {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(30, 15, 82);
+  background-color: #b0cfe9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.feedback {
+  min-height: 80px;
+  margin-top: 20px;
+}
+
+.feedback > div {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.wrong {
+  background-color: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #c62828;
+}
+
+.correct {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 4px solid #2e7d32;
+}
+
+.revealed {
+  background-color: #fff3e0;
+  color: #e65100;
+  border-left: 4px solid #e65100;
+}
+
+.explanation {
+  background-color: #e3f2fd;
+  color: #12529b;
+  border-left: 4px solid #1565c0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.explanation strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.nextButton {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nextButton:hover {
+  background-color: #1976D2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nextButton:active {
+  transform: translateY(0);
+}
